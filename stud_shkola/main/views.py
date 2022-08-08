@@ -4,6 +4,6 @@ from django.http import HttpResponse
 
 
 def menu(request):
-    return render(request,"<h4>ВУЗЫ</h4>")
+    return render(request,'main/menu.html')
 def mirea(request):
     return HttpResponse("<h4>МИРЭА</h4>")
