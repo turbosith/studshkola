@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 # Create your views here.
 
-
+from .models import questions
 def menu(request):
-    return render(request,'main/menu.html')
+    gue=questions.objects.all()
+    return render(request,'main/menu.html', {'title': 'Главная страница', 'que': questions})
 def mirea(request):
-    return HttpResponse("<h4>МИРЭА</h4>")
+    return render(request,'main/mirea.html')
