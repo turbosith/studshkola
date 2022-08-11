@@ -1,0 +1,13 @@
+{% extends 'main/base.html'%}
+{%  block title%}
+ {{title}}
+{% endblock%}
+
+{%  block content%}
+  <p>Задайте вопрос</p>
+  <form method="post">
+      <input type="text" placeholder="Введите тему вопроса" class="form-control"><br>
+      <textarea placeholder="Введите вопрос" class="form-control"> </textarea><br>
+      <button type="submit" class="btn btn-success">Задать</button>
+  </form>
+{% endblock%}
