@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from .models import questions
 def menu(request):
-    gue=questions.objects.all()
-    return render(request,'main/menu.html', {'title': 'Главная страница', 'que': questions})
+    que=questions.objects.all()
+    return render(request,'main/menu.html', {'title': 'StudШкола', 'que': que})
 def mirea(request):
     return render(request,'main/mirea.html')
