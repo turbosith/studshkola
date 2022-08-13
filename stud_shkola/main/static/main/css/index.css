@@ -19,7 +19,7 @@
   margin-left:0;
   height:385px;
   min-width:200px;
-  max-width:668px;
+  max-width:1800px;
   margin:auto;
   background-color:rgba(255, 255, 255, 1);
   border:1px solid rgba(0, 0, 0, 1);
@@ -136,7 +136,7 @@
   margin-top:0px;
   margin-bottom:6px;
   min-height:198px;
-  content:url(assets/images/Allura_Sitting__colors_.png);
+  content:url(main/img/Allura_Sitting__colors_.png);
 }
 .Allura-Sitting--colo-outer{
   pointer-events:none;
@@ -155,7 +155,7 @@
   margin-top:-128px;
   margin-bottom:0px;
   min-height:128px;
-  content:url(assets/images/Allura_Chair_2.png);
+  content:url(main/img/Allura_Chair_2.png);
 }
 .Allura-Chair-2-outer{
   pointer-events:none;
@@ -420,7 +420,7 @@
   margin-top:0px;
   margin-bottom:-1.7800000000000011px;
   min-height:7.73px;
-  content:url(assets/images/Line_5.png);
+  content:url(main/img/Line_5.png);
 }
 .Line-5-outer{
   pointer-events:none;
@@ -439,7 +439,7 @@
   margin-top:-5.95px;
   margin-bottom:-2px;
   min-height:7.95px;
-  content:url(assets/images/Line_4.png);
+  content:url(main/img/Line_4.png);
 }
 .Line-4-outer{
   pointer-events:none;
@@ -479,7 +479,7 @@
   margin-top:-327px;
   margin-bottom:0px;
   min-height:327px;
-  content:url(assets/images/Women_Power_Social_Distance.png);
+  content:url(main/img/Women_Power_Social_Distance.png);
 }
 .Women-Power-Social-D-outer{
   pointer-events:none;
@@ -600,7 +600,7 @@
   margin-top:-112px;
   margin-bottom:44px;
   min-height:68px;
-  content:url(assets/images/_________.png);
+  content:url(main/img/_________.png);
   visibility:hidden;
 }
 .q---------outer{

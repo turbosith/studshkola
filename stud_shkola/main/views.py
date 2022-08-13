@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .models import questions
 def menu(request):
     que=questions.objects.order_by('-id')
-    return render(request,'main/menu.html', {'title': 'StudШкола', 'que': que})
+    return render(request,'main/index.html', {'title': 'StudШкола', 'que': que})
 def mirea(request):
     return render(request,'main/mirea.html')
 def askquestion(request):
