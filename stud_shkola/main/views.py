@@ -10,3 +10,5 @@ def mirea(request):
     return render(request,'main/mirea.html')
 def askquestion(request):
     return render(request,'main/askquestion.html', {'title': 'StudШкола'})
+def certain_question(request,qid):
+    return render(request,'main/askquestion.html', {'title': 'StudШкола'})
