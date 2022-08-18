@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,HttpResponse, redirect
+from django.http import HttpResponseNotFound,Http404
 # Create your views here.
 
 from .models import questions
@@ -12,3 +12,7 @@ def askquestion(request):
     return render(request,'main/askquestion.html', {'title': 'StudШкола'})
 def certain_question(request,qid):
     return render(request,'main/askquestion.html', {'title': 'StudШкола'})
+def universities(request, uid):
+    return HttpResponse(f"<h1>ВУЗ: </h1><p>{uid}</p>")
+def pageNotFound(request, exception):
+    return HttpResponseNotFound(f"<h1>Страница не найдена </h1><p>Что-то пошло не так:)")
