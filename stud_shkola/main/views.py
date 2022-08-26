@@ -16,3 +16,6 @@ def universities(request, uid):
     return HttpResponse(f"<h1>ВУЗ: </h1><p>{uid}</p>")
 def pageNotFound(request, exception):
     return HttpResponseNotFound(f"<h1>Страница не найдена </h1><p>Что-то пошло не так:)")
+def questionss(request):
+    que = questions.objects.all()
+    return render(request, 'main/questions.html', {'title': 'StudШкола', 'que': que})

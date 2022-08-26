@@ -117,8 +117,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS = [
+    '''
    os.path.join(BASE_DIR, "static"),
+   '''
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -126,3 +129,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+TEMPLATE_DIRS = (
+   # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+   # Always use forward slashes, even on Windows.
+   # Don't forget to use absolute paths, not relative paths.
+   BASE_DIR + 'stud_shkola/main/templates',
+)

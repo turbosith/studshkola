@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'main/base.html'%}
+{% block content%}
+<ul>
+    {% for q in que%}
+    <li>
+        <h2>{{q.question}}</h2>
+        <p>{{q.category}}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -3,15 +3,18 @@ categ={}
 class questions(models.Model):
     category = models.CharField('Тематика', max_length=100)
     question=models.TextField('Вопрос', blank=True)
-    photo=models.ImageField(upload_to="photos/%Y/%m/%d/",default=True)
+
+    photo=models.ImageField(upload_to="photos/%Y/%m/%d/")
     userid = models.BigIntegerField(default=0)
     time_create=models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     is_published=models.BooleanField(default=True)
 
+
     def __str__(self):
         return self.question
+    '''
     class Meta:
         verbose_name='Вопрос'
         verbose_name_plural = 'Вопросы'
-
+'''

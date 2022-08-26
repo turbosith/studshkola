@@ -1,0 +1,121 @@
+.frame-2 {
+  padding: 0 0 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.glavnaja {
+  height: 385px;
+  width: 1920px;
+  position: relative;
+}
+.fon {
+  width: 1920px;
+  height: 1000px;
+  background-color: var(--sky-blue);
+  position: relative;
+}
+.group-1 {
+  padding: 0 0 0 191px;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  right: 113px;
+  bottom: -487px;
+}
+.stud-verh {
+  height: 176px;
+  width: 698px;
+  color: var(--dark-blue);
+  display: flex;
+  position: absolute;
+  left: 9px;
+  top: 322px;
+  font-family: var(
+    --montserrat-alternates-128-regular-family
+  );
+  font-size: var(--montserrat-alternates-128-regular-size);
+  font-weight: var(
+    --montserrat-alternates-128-regular-weight
+  );
+  line-height: var(
+    --montserrat-alternates-128-regular-line-height
+  );
+}
+.women-power-social-distance {
+  width: 1247px;
+  height: 745px;
+  position: relative;
+}
+.flex-wrapper-one {
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+  top: 425px;
+}
+.shkola {
+  height: 94px;
+  width: 419px;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: var(--sky-blue);
+  font-family: var(
+    --montserrat-alternates-128-regular-family
+  );
+  font-size: var(--montserrat-alternates-128-regular-size);
+  font-weight: var(
+    --montserrat-alternates-128-regular-weight
+  );
+  line-height: var(
+    --montserrat-alternates-128-regular-line-height
+  );
+}
+.shkola-emphasis-1 {
+  color: var(--tan);
+  font-family: var(
+    --montserrat-alternates-128-regular-family
+  );
+  font-size: var(--montserrat-alternates-128-regular-size);
+  font-weight: var(
+    --montserrat-alternates-128-regular-weight
+  );
+  line-height: var(
+    --montserrat-alternates-128-regular-line-height
+  );
+}
+.shkola-verh {
+  height: 104px;
+  width: 649px;
+  color: var(--white-smoke);
+  display: flex;
+  position: relative;
+  font-family: var(
+    --montserrat-alternates-128-regular-family
+  );
+  font-size: var(--montserrat-alternates-128-regular-size);
+  font-weight: var(
+    --montserrat-alternates-128-regular-weight
+  );
+  line-height: var(
+    --montserrat-alternates-128-regular-line-height
+  );
+}
+/* This is the project stylesheet */
+
+:root {
+  /* Colors */
+  --dark-blue: rgba(30, 9, 153, 1);
+  --sky-blue: rgba(152, 202, 221, 1);
+  --tan: rgba(210, 204, 161, 1);
+  --white-smoke: rgba(245, 245, 245, 1);
+
+  /* Typographies */
+  /* montserrat-alternates-128-regular */
+  --montserrat-alternates-128-regular-family: "Montserrat Alternates";
+  --montserrat-alternates-128-regular-size: 128px;
+  --montserrat-alternates-128-regular-weight: 400;
+  --montserrat-alternates-128-regular-line-height: normal;
+}
