@@ -2,10 +2,19 @@ from django.shortcuts import render,HttpResponse, redirect
 from django.http import HttpResponseNotFound,Http404
 # Create your views here.
 
-from .models import questions
+from .models import questions, Category
+
+
 def menu(request):
-    que=questions.objects.order_by('-id')
-    return render(request,'main/index.html', {'title': 'StudШкола', 'que': que})
+    que = questions.objects.order_by('-id')
+    cats = Category.objects.all()
+    context={'title': 'StudШкола',
+             'que': que,
+
+             'cats': cats,
+             'cat_selected': 0,
+             }
+    return render(request,'main/index.html', context=context)
 def mirea(request):
     return render(request,'main/mirea.html')
 def askquestion(request):
@@ -19,3 +28,6 @@ def pageNotFound(request, exception):
 def questionss(request):
     que = questions.objects.all()
     return render(request, 'main/questions.html', {'title': 'StudШкола', 'que': que})
+def show_category(request, cat_id):
+
+    return HttpResponse(f"Отображение страницы {cat_id}")
