@@ -1,8 +1,8 @@
-from django.shortcuts import render,HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.http import HttpResponseNotFound,Http404
 # Create your views here.
 
-from .models import questions, Category
+from .models import questions, Category, Universities
 
 
 def menu(request):
@@ -16,7 +16,7 @@ def menu(request):
              }
     return render(request,'main/index.html', context=context)
 def mirea(request):
-    return render(request,'main/mirea.html')
+    return render(request,'main/university.html')
 def askquestion(request):
     return render(request,'main/askquestion.html', {'title': 'StudШкола'})
 def certain_question(request,qid):
@@ -31,3 +31,13 @@ def questionss(request):
 def show_category(request, cat_id):
 
     return HttpResponse(f"Отображение страницы {cat_id}")
+def show_university(request, university_slug):
+    university=get_object_or_404(Universities, slug=university_slug)
+    context={
+        'university':university,
+        'title':university.name,
+        #'cat_selected': university.name
+
+    }
+    return render(request, 'main/universities.html', context=context)
+

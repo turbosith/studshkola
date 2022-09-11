@@ -1,4 +1,7 @@
 {% extends 'main/base.html'%}
 {% block content%}
-
+<h1>{{university.name}}</h1>
+{%if university.photo%}
+<p><img  src="{{university.photo.url}}"></p>
+{%endif%}
 {% endblock%}

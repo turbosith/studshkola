@@ -11,7 +11,7 @@ urlpatterns = [
     path('mirea', views.mirea, name='mirea'),
     path('askquestion', views.askquestion, name='askquestion'),
     path('certain_question/<int:qid>/', views.certain_question, name='certain_question'),
-    path('universities/<slug:uid>/',views.universities),
+    path('universities/<slug:university_slug>/',views.show_university, name='universities'),
     path('questions', views.questionss, name='questions'),
     path('category/<int:cat_id>/', show_category, name='category'),
 
