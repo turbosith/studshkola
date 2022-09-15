@@ -14,6 +14,10 @@ urlpatterns = [
     path('universities/<slug:university_slug>/',views.show_university, name='universities'),
     path('questions', views.questionss, name='questions'),
     path('category/<int:cat_id>/', show_category, name='category'),
+    path('menuu', views.menuu, name='menuu'),
+    path('register', RegisterUser.as_view(), name='register'),
+    path('login', views.login, name='login'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

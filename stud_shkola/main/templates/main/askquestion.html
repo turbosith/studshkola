@@ -2,12 +2,33 @@
 {%  block title%}
  {{title}}
 {% endblock%}
-
+{%load static %}
+{% block head%}
+<link rel="stylesheet" href="{% static 'main/css/askquestion.css' %}">
+{% endblock %}
 {%  block content%}
-  <p>Задайте вопрос</p>
-  <form method="post">
-      <input type="text" placeholder="Введите тему вопроса" class="form-control"><br>
-      <textarea placeholder="Введите вопрос" class="form-control"> </textarea><br>
-      <button type="submit" class="btn btn-success">Задать</button>
+
+<div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Задайте вопрос</h3>
+  <form action=" {% url 'askquestion' %}" method="post" class="requires-validation" enctype="multipart/form-data">
+      {% csrf_token %}
+      <dif class="form-error">{{ form.non_field_errors }}</dif>
+      {% for f in form%}
+      <p><label class="form-label" for="{{f.id_for_label}}">{{f.label}}:</label>{{ f }}</p>
+      <def class="form-error">{{f.errors}}</def>
+      {% endfor %}
+
+      <div class="form-button mt-3">
+                                <button id="submit" type="submit" class="btn btn-primary">Задать вопрос</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
   </form>
 {% endblock%}

@@ -4,6 +4,9 @@
   flex-direction: column;
   align-items: flex-start;
 }
+.beb1{
+ left: 20px;
+}
 .glavnaja {
   height: 385px;
   width: 1920px;

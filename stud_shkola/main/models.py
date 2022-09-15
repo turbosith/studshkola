@@ -3,14 +3,14 @@ from django.urls import reverse
 
 categ={}
 class questions(models.Model):
-    cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True)
+    cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
     question=models.TextField( blank=True, verbose_name="Вопрос")
     photo=models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фотография",blank=True)
     userid = models.BigIntegerField(default=0)
     time_create=models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True)
     is_published=models.BooleanField(default=True, verbose_name="Опубликовано")
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+    #slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
 
     def __str__(self):
         return self.question
