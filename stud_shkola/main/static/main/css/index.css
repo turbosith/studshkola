@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+	margin: 0 auto;
+	background-color:#F5F5F5;
+
+}
 .frame-2 {
   padding: 0 0 620px;
   display: flex;
@@ -13,6 +19,7 @@
   position: relative;
 }
 .fon {
+top:10%;
   width: 1920px;
   height: 1000px;
   background-color: var(--sky-blue);
@@ -27,6 +34,7 @@
   bottom: -487px;
 }
 .stud-verh {
+margin-left:-50%;
   height: 176px;
   width: 698px;
   color: var(--dark-blue);
@@ -45,19 +53,23 @@
     --montserrat-alternates-128-regular-line-height
   );
 }
+
 .women-power-social-distance {
-  width: 1247px;
-  height: 745px;
-  position: relative;
+  width: 700px;
+  height: auto;
+
+
 }
+
 .flex-wrapper-one {
   display: flex;
   align-items: flex-start;
   position: absolute;
-  left: 0;
+  margin-left:-70%;
   top: 425px;
 }
 .shkola {
+
   height: 94px;
   width: 419px;
   display: flex;
@@ -121,4 +133,93 @@
   --montserrat-alternates-128-regular-size: 128px;
   --montserrat-alternates-128-regular-weight: 400;
   --montserrat-alternates-128-regular-line-height: normal;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 0.15em;
+  font-size: 3em;
+  line-height: 1.2;
+  transform: translateY(52%);
+}
+
+
+#toggle {
+  display: none;
+}
+
+/**
+  Hamburger
+**/
+.hamburger {
+  position: absolute;
+  top: 5em;
+  right: 5%;
+  margin-left: -2em;
+  margin-top: -45px;
+  width: 2em;
+  height: 45px;
+  z-index: 5;
+}
+
+.hamburger div {
+  position: relative;
+  width: 3em;
+  height: 7px;
+  border-radius: 3px;
+  background-color: #196C8C;
+  margin-top: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.hedliner {
+
+
+
+font-family: 'Alegreya Sans';
+font-style: normal;
+margin-left: -20%;
+
+/* identical to box height */
+
+
+color: #196C8C;
+}
+
+/**
+Nav Styles
+**/
+
+/**
+Animations
+**/
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(-45deg);
+  margin-top: 25px;
+}
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -7px;
+}
+
+#toggle:checked + .hamburger + .nav {
+  top: 0;
+  transform: scale(1);
+}
+.headerFrame{
+
+}
+div.nav:z-ind {
+
+        display: block;
+        z-index:99999999;
+    }
+.line{
+color: #ffffff;
+size:1px;
+
 }

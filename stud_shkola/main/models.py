@@ -2,11 +2,12 @@ from django.db import models
 from django.urls import reverse
 
 categ={}
-class questions(models.Model):
+class Questions(models.Model):
     cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
     question=models.TextField( blank=True, verbose_name="Вопрос")
     photo=models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фотография",blank=True)
     userid = models.BigIntegerField(default=0)
+    uni = models.ForeignKey('Universities', on_delete=models.PROTECT, null=True, verbose_name="Вузы")
     time_create=models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True)
     is_published=models.BooleanField(default=True, verbose_name="Опубликовано")
@@ -34,7 +35,9 @@ class Category(models.Model):
         ordering = ['id']
 class Universities(models.Model):
     slug= models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-    name = models.TextField(blank=True, verbose_name="Название института")
+    name = models.CharField(max_length=100, db_index=True,verbose_name="Название института")
+    def __str__(self):
+        return self.name
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фотография", blank=True)
     class Meta:
         verbose_name = 'Университет'

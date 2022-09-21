@@ -21,5 +21,5 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id','name')
     search_fields = ('name',)
 admin.site.register(Universities, UniversitiesAdmin)
-admin.site.register(questions,MainAdmin )
+admin.site.register(Questions,MainAdmin )
 admin.site.register(Category, CategoryAdmin)

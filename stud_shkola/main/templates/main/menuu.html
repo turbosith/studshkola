@@ -2,6 +2,10 @@
 {%load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'main/css/menu.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400">
+
 {% endblock %}
 {% block content %}
 <div class="group-1">
@@ -9,20 +13,20 @@
     <div class="vuzy-three">
       <div class="relative-wrapper-one">
         <p class="vuzy">ВУЗЫ</p>
-        <p class="vuzy-two">ВУЗЫ</p>
+        <a class="vuzy-two" style= " text-decoration:none; color:#ffffff" href="">ВУЗЫ</a>
       </div>
       <p class="voprosy">ВОПРОСЫ</p>
     </div>
     <div class="profil-three">
       <p class="profil">ПРОФИЛЬ</p>
-      <p class="profil-two">ПРОФИЛЬ</p>
+      <a class="profil-two" style= " text-decoration:none; color:#ffffff" href="">ПРОФИЛЬ</a>
     </div>
-    <p class="voprosy-two">ВОПРОСЫ</p>
+    <a class="voprosy-two" style= " text-decoration:none; color:#ffffff" href="">ВОПРОСЫ</a>
   </div>
   <div class="kontakty-two">
-    <p class="vk">VK</p>
-    <p class="mail">MAIL</p>
-    <p class="kontakty">КОНТАКТЫ</p>
+    <a class="vk" style= "color:#ffffff; text-decoration:none" href="">VK</a>
+    <a class="mail" style= "color:#ffffff; text-decoration:none" href="">MAIL</a>
+    <a class="kontakty" style= "color:#ffffff; text-decoration:none" href="">КОНТАКТЫ</a>
   </div>
 </div>
 {% endblock %}
