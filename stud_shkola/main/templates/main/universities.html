@@ -1,7 +1,108 @@
 {% extends 'main/base.html'%}
+{%load static %}
+{% block head%}
+<link rel="stylesheet" href="{% static 'main/css/universities.css' %}">
+{% endblock %}
 {% block content%}
-<h1>{{university.name}}</h1>
-{%if university.photo%}
-<p><img  src="{{university.photo.url}}"></p>
+
+
+<div class="kartochka-vuza">
+     <div id="button_back">
+<div id="button_back_img">
+<img src="/media/photos/2022/20/button_img-PhotoRoom.png/" id="img_bb">
+</div>
+<div id="button_back_text">
+<p><a href=" {% url 'home' %}" style= "color:#000000; text-decoration:none"> ВУЗЫ</a></p>
+</div>
+</div>
+  <div class="voprosy-fon"></div>
+  {%if university.photo%}
+<p><img  src="{{university.photo.url}}"  alt="" class="foto-vuza"></p>
+
 {%endif%}
+
+  <div class="voprosy">
+    <div
+
+      class="image-7"
+
+<div class="kartochka-vuza">
+
+
+
+
+    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju">
+      Какие нормативы нужно сдать на военную кафедру?
+    </p>
+    <p class="andrej-zadal-vopross-v-kategriju-sport">
+        Андрей задал вопрос в категрию &#34;Спорт&#34; <u>01.03.2022</u><br />
+
+    </p>
+
+
+<button style="margin-left:50%;margin-top:-210%; +79162953 line-height: normal;">Посмотреть</button>
+  </div>
+
+      <div
+
+      class="image-7"
+
+<div class="kartochka-vuza">
+
+
+
+
+    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju">
+      Кто подёт со сной играть в Фортнайт?
+    </p>
+    <p class="andrej-zadal-vopross-v-kategriju-sport">
+        Василий задал вопрос в категрию &#34;Игры&#34; <u>06.04.2022</u><br />
+    </p>
+
+ <button style="margin-left:50%;margin-top:-210%; +79162953 line-height: normal;">Посмотреть</button>
+  </div>
+
+
+      <div
+
+      class="image-7"
+
+<div class="kartochka-vuza">
+
+
+
+
+    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju">
+      Как быстро ссчитать степени двойки?
+    </p>
+    <p class="andrej-zadal-vopross-v-kategriju-sport">
+        Георгий задал вопрос в категрию &#34;Учёба&#34; <u>06.04.2022</u><br />
+    </p>
+
+ <button style="margin-left:50%;margin-top:-210%; +79162953 line-height: normal;">Посмотреть</button>
+  </div>
+
+
+
+  </div>
+
+  <h1 class="mgtu-im-baumana">{{university.name}}</h1>
+
+
+<div>
+  </div>
+
+</div>
+
+  <div class="voprosy-fon"></div>
+  <div class="fil-tr">
+    <p class="po-populjarnosti">по популярности</p>
+    <img
+      alt=""
+      class="strelochka"
+      src="https://static.overlay-tech.com/assets/bddbe2f9-a247-411e-a855-c185c3d00055.svg"
+    />
+  </div>
+
+
 {% endblock%}

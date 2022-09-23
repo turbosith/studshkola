@@ -43,9 +43,16 @@ def questions(request):
 
 def menuu(request):
     return render(request, 'main/menuu.html', {'title': 'Меню'})
-def show_category(request, cat_id):
+class MainCategory(ListView):
+    model=Questions
+    template_name = 'main/catergory.html'
+    context_object_name = 'que'
+    allow_empty = False
+    def get_queryset(self):
+        return Questions.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True)
 
-    return HttpResponse(f"Отображение страницы {cat_id}")
+    #return HttpResponse(f"Отображение страницы {cat_id}")
+
 def show_university(request, university_slug):
     university=get_object_or_404(Universities, slug=university_slug)
     context={
