@@ -43,15 +43,7 @@ def questions(request):
 
 def menuu(request):
     return render(request, 'main/menuu.html', {'title': 'Меню'})
-class MainCategory(ListView):
-    model=Questions
-    template_name = 'main/catergory.html'
-    context_object_name = 'que'
-    allow_empty = False
-    def get_queryset(self):
-        return Questions.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True)
 
-    #return HttpResponse(f"Отображение страницы {cat_id}")
 
 def show_university(request, university_slug):
     university=get_object_or_404(Universities, slug=university_slug)
@@ -83,8 +75,8 @@ def choice(request):
         form=Choise(request.POST,request.FILES)
         if form.is_valid():
             #print(form.cleaned_data)
+
             return redirect('home')
-            #return redirect(" {% url 'universities' %}")
 
     else:
         form=Choise()
@@ -100,3 +92,21 @@ class MainUniversity(ListView):
         return context
     def get_queryset(self):
         return Questions.objects.filter(is_published=True)
+
+
+class MainCategory(ListView):
+    model = Questions
+    template_name = 'main/category.html'
+    context_object_name = 'que'
+    allow_empty = False
+
+    def get_queryset(self):
+        return Questions.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Категория - ' + str(context['posts'][0].cat)
+        context['menu'] = menu
+        context['cat_selected'] = context['posts'][0].cat_id
+        return context
+    #return HttpResponse(f"Отображение страницы {cat_id}")

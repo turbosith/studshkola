@@ -13,12 +13,13 @@ urlpatterns = [
     path('certain_question/<int:qid>/', views.certain_question, name='certain_question'),
 
     path('questions', views.questions, name='questions'),
-    path('category/<slug:cat_slug>/', MainCategory.as_view(), name='category'),
+
     path('menuu', views.menuu, name='menuu'),
     #path('register', RegisterUser.as_view(), name='register'),
     #path('login', views.login, name='login'),
-    path('university', MainUniversity.as_view(), name='university'),
+    path('university', views.choice, name='university'),
     path('universities/<slug:university_slug>/', views.show_university, name='universities'),
+    path('category/<slug:cat_slug>/', MainCategory.as_view(), name='category'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
