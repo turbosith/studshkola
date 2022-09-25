@@ -1,0 +1,294 @@
+#menu{
+
+    display:block;
+    position:absolute;
+    top:200px;
+    left:450px;
+}
+#menu li {
+
+    display:inline;
+    height:20px;
+    position:relative;
+}
+
+
+#menu  li ul {
+    position:absolute-block;
+    top:20px;
+    display:none;
+
+}
+
+#menu > li:hover > ul {
+    display:block;
+}
+body {
+	margin: 0 auto;
+
+}
+:root {
+  /* Colors */
+  --black: rgba(0, 0, 0, 1);
+  --dim-gray: rgba(102, 102, 102, 1);
+  --gray: rgba(134, 134, 134, 1);
+  --teal: rgba(25, 108, 140, 1);
+  --transparent-black: rgba(0, 0, 0, 0.25);
+  --transparent-powder-blue: rgba(180, 222, 238, 0.65);
+
+
+  /* Typographies */
+  /* saira-14-regular */
+  --saira-14-regular-family: "Saira";
+  --saira-14-regular-size: 14px;
+  --saira-14-regular-weight: 400;
+  --saira-14-regular-line-height: normal;
+}
+.kartochka-vuza {
+  padding: 1px 0 0;
+}
+.voprosy-fon {
+  width: 1960px;
+  height: 1080px;
+  background-color: var(--white);
+  position: relative;
+}
+.foto-vuza {
+  width: 600px;
+  height: 645px;
+  margin-left: 3%;
+  margin-top: -55%;
+  position: fixed;
+}
+.voprosy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 368px;
+  margin-top: -50%;
+
+}
+.image-7 {
+  width: 815.22px;
+  height: 95.01px;
+  border-radius: 18px;
+  margin-down:15%;
+  background:#F5F5F5;
+  background-color: var(--transparent-powder-blue);
+  border-radius: 11px;
+  padding: 22px 7px 12px 480px;
+   border: 1px solid var(--black);
+}
+.flex-wrapper-one {
+
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+
+}
+.image-7:not(:last-of-type) {
+  margin-bottom: 24.22px;
+}
+.image-9 {
+  width: 815.22px;
+  height: 95.01px;
+  margin-bottom: 20.5px;
+  border-radius: 18px;
+}
+.mgtu-im-baumana {
+  height: 67px;
+  width: 432px;
+  color: var(--midnight-blue);
+  display: flex;
+  position: absolute;
+ margin-left:40%;
+ margin-top:-59%;
+}
+.fil-tr {
+  background-color: var(--transparent-powder-blue);
+  border-radius: 22px;
+  padding: 7.45px 22.82px 11.18px 18.26px;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  left: 150px;
+  top: 256.01px;
+}
+.po-populjarnosti {
+  height: 26.08px;
+  width: 273.86px;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  margin-right: 6.88px;
+  font-family: var(--montserrat-26-regular-family);
+  font-size: var(--montserrat-26-regular-size);
+  font-weight: var(--montserrat-26-regular-weight);
+  line-height: var(--montserrat-26-regular-line-height);
+}
+#button_back{
+	width: 160px;
+	height: 57px;
+	display: flex;
+	justify-content: space-around;
+	margin: 40 0 0 20;
+}
+#button_back_img {
+	width: 35px;
+	height: 57px;
+}
+#button_back_text {
+	width: 125px;
+	height: 47px;
+	padding-top: -5px;
+}
+#button_back_text p{
+	margin-top: 65px;
+	color: #09264F;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 35px;
+
+}
+#img_bb{
+	margin-top: 65px;
+	height: 95%;
+}
+
+.kartochka-vuza {
+  padding: 1px 0 0;
+}
+
+.fil-tr {
+  background-color: var(--transparent-powder-blue);
+  border-radius: 22px;
+  padding: 7.45px 22.82px 6.18px 18.26px;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  margin-left: -5%;
+  margin-top: 0%;
+
+}
+.po-populjarnosti {
+  height: 26.08px;
+  width: 273.86px;
+  font-family: "Montserrat";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  margin-right: 6.88px;
+
+
+}
+.strelochka {
+  width: 15.98px;
+  height: 9.31px;
+  margin-top: 11.18px;
+}
+.group-1 {
+  padding: 0 8px 18px 0;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  right: 360px;
+  top: 363px;
+}
+
+
+.kakie-normativy-nuzhno-ssdat-na-voennuju {
+  width: 800px;
+  font-family: "Alegreya Sans";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--dim-gray);
+margin-top:-5%;
+margin-left:-140%;
+
+}
+.andrej-zadal-vopross-v-kategriju-sport {
+  max-width: 620px;
+  font-family: "Alegreya Sans";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--black);
+ margin-top:-5%;
+margin-left:-140%;
+
+}
+#img_yzor{
+	margin-top: -4%;
+	align-content:left;
+	width: 12%;
+	height: 30%;
+
+
+  margin-left: 0%;
+  margin-top: -31%;
+  position:fixed;
+
+}
+.bn59 {
+  background-color: #8444C1;
+  border: 1px solid rgba(54, 54, 54, 0.6);
+  font-weight: 600;
+
+  position: absolute;
+  outline: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+top:33%;
+left:3%;
+  opacity: 1;
+
+   height: 40.08px;
+  width: 273.86px;
+  font-family: "Montserrat";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+
+text-decoration:none;
+
+
+}
+#button_back{
+	width: 160px;
+	height: 57px;
+	display: flex;
+	justify-content: space-around;
+	margin: 40 0 0 20;
+}
+#button_back_img {
+	width: 35px;
+	height: 57px;
+}
+#button_back_text {
+	width: 125px;
+	height: 47px;
+	padding-top: -5px;
+}
+#button_back_text p{
+	margin-top: 65px;
+	color: #09264F;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 35px;
+
+}
+#img_bb{
+	margin-top: 65px;
+	height: 95%;
+}

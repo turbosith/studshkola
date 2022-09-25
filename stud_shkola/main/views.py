@@ -82,17 +82,29 @@ def choice(request):
         form=Choise()
 
     return render(request,'main/university.html', {'form':form, 'title': 'Выбрать ВУЗ'})
-class MainUniversity(ListView):
-    model=Questions
-    template_name = 'main/university.html'
-    context_object_name = 'univ'
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context= super().get_context_data(**kwargs)
-        context['title']='Выбор вуза'
-        return context
-    def get_queryset(self):
-        return Questions.objects.filter(is_published=True)
+# class MainUniversity(ListView):
+#     model=Questions
+#     template_name = 'main/university.html'
+#     context_object_name = 'univ'
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context= super().get_context_data(**kwargs)
+#         context['title']='Выбор вуза'
+#         return context
+#     def get_queryset(self):
+#         return Questions.objects.filter(is_published=True)
 
+
+def show_uni(request):
+    que = Questions.objects.order_by('-id')
+    cats = Category.objects.all()
+    uni = Category.objects.all()
+    context = {'title': 'Вопросы',
+               'que': que,
+                'uni': uni,
+               'cats': cats,
+               'cat_selected': 0,
+               }
+    return render(request, 'main/university.html', context=context)
 
 class MainCategory(ListView):
     model = Questions
@@ -110,3 +122,23 @@ class MainCategory(ListView):
         context['cat_selected'] = context['posts'][0].cat_id
         return context
     #return HttpResponse(f"Отображение страницы {cat_id}")
+def show_category(request):
+     que = Questions.objects.order_by('-id')
+     cats = Category.objects.all()
+     context={'title': 'Вопросы',
+              'que': que,
+
+              'cats': cats,
+              'cat_selected': 0,
+              }
+     return render(request, 'main/category.html',context=context)
+def categories(request, cat_slug):
+    cat=get_object_or_404(Category, slug=cat_slug)
+    context={
+        'cat':cat,
+        'title':cat.name,
+        #'cat_selected': university.name
+
+    }
+    return render(request, 'main/categories.html', context=context)
+

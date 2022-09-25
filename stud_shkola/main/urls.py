@@ -17,9 +17,10 @@ urlpatterns = [
     path('menuu', views.menuu, name='menuu'),
     #path('register', RegisterUser.as_view(), name='register'),
     #path('login', views.login, name='login'),
-    path('university', views.choice, name='university'),
+    path('university', views.show_uni, name='university'),
     path('universities/<slug:university_slug>/', views.show_university, name='universities'),
-    path('category/<slug:cat_slug>/', MainCategory.as_view(), name='category'),
+    path('category', views.show_category, name='category'),
+    path('categories/<slug:cat_slug>/', views.categories, name='categories'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

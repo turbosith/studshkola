@@ -203,3 +203,63 @@ html, body {
 	width: 12%;
 	height: 30%;
 }
+#img_bb{
+	margin-top: 65px;
+	height: 95%;
+}
+
+#button_back_text p{
+	margin-top: 65px;
+	color: #09264F;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 35px;
+
+}
+#img_bb{
+	margin-top: 65px;
+	height: 95%;
+}
+
+.kartochka-vuza {
+  padding: 1px 0 0;
+}
+
+.fil-tr {
+  background-color: var(--transparent-powder-blue);
+  border-radius: 22px;
+  padding: 7.45px 22.82px 6.18px 18.26px;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  margin-left: -5%;
+  margin-top: 0%;
+
+}
+.po-populjarnosti {
+  height: 26.08px;
+  width: 273.86px;
+  font-family: "Montserrat";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  margin-right: 6.88px;
+
+
+}
+.strelochka {
+  width: 15.98px;
+  height: 9.31px;
+  margin-top: 11.18px;
+}
+.group-1 {
+  padding: 0 8px 18px 0;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  right: 360px;
+  top: 363px;
+}
