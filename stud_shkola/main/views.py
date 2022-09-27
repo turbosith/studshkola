@@ -1,11 +1,14 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.http import HttpResponseNotFound,Http404
 # Create your views here.
+from django.urls import reverse_lazy
+
 from .forms import *
 from .models import Questions, Category, Universities
 from django.views.generic import ListView, CreateView
-
+from .utils import *
 
 def menu(request):
     '''
@@ -97,7 +100,7 @@ def choice(request):
 def show_uni(request):
     que = Questions.objects.order_by('-id')
     cats = Category.objects.all()
-    uni = Category.objects.all()
+    uni = Universities.objects.order_by('-name')
     context = {'title': 'Вопросы',
                'que': que,
                 'uni': uni,
@@ -127,18 +130,30 @@ def show_category(request):
      cats = Category.objects.all()
      context={'title': 'Вопросы',
               'que': que,
-
               'cats': cats,
+
               'cat_selected': 0,
               }
      return render(request, 'main/category.html',context=context)
 def categories(request, cat_slug):
-    cat=get_object_or_404(Category, slug=cat_slug)
-    context={
-        'cat':cat,
-        'title':cat.name,
-        #'cat_selected': university.name
+    cats = Category.objects.all()
+    catt=get_object_or_404(Category, slug=cat_slug)
+
+    que = Questions.objects.filter(cat__slug=catt.slug)
+    context = {
+        'cats': cats,
+        'cat': catt,
+        'title': catt.name,
+        'que': que,
+        # 'cat_selected': university.name
 
     }
     return render(request, 'main/categories.html', context=context)
-
+class RegisterUser(DataMixin, CreateView):
+    form_class = UserCreationForm
+    template_name = 'main/register.html'
+    success_url = reverse_lazy('login')
+    def get_context_data(self,*,object_list=None, **kwargs):
+        context=super().get_context_data(**kwargs)
+        c_def=self.get_user_context(title="Регистрация")
+        return dict(list(context.items())+list(c_def.items()))

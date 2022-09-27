@@ -197,3 +197,39 @@ margin-left:-140%;
 margin-left:-140%;
 
 }
+:root {
+  /* Colors */
+
+  --teal: rgba(25, 108, 140, 1);
+
+.bn59 {
+  background-color: #8444C1;
+  border: 1px solid rgba(54, 54, 54, 0.6);
+  font-weight: 600;
+
+  position: relative;
+  outline: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+top:33%;
+left:3%;
+  opacity: 1;
+
+   height: 40.08px;
+  width: 273.86px;
+  font-family: "Montserrat";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+
+text-decoration:none;
+
+
+
+}

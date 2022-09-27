@@ -41,6 +41,7 @@ p {
 }
 .center-pic{
 text-align:center;
+
 }
 #crug{
 margin-top: 4%;
@@ -198,7 +199,7 @@ html, body {
    color: #2acc80;
 }
 #img_yzor{
-	margin-top: -4%;
+	margin-top: 3%;
 	align-content:left;
 	width: 12%;
 	height: 30%;
@@ -226,14 +227,14 @@ html, body {
 }
 
 .fil-tr {
-  background-color: var(--transparent-powder-blue);
+  background-color: #ffffff;
   border-radius: 22px;
   padding: 7.45px 22.82px 6.18px 18.26px;
   display: flex;
   align-items: flex-start;
   position: absolute;
-  margin-left: -5%;
-  margin-top: 0%;
+  margin-left: 41%;
+  margin-top: 1%;
 
 }
 .po-populjarnosti {
@@ -243,7 +244,7 @@ html, body {
   font-size: 26px;
   font-weight: 400;
   line-height: normal;
-  color: var(--teal);
+  color: #ffffff;
   display: flex;
   align-items: center;
   margin-right: 6.88px;
@@ -262,4 +263,11 @@ html, body {
   position: absolute;
   right: 360px;
   top: 363px;
+}
+.fon {
+top:0%;
+  width: 1920px;
+  height: 1000px;
+  background-color: var(--sky-blue);
+  position: relative;
 }

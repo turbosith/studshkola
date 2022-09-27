@@ -48,7 +48,7 @@ class Universities(models.Model):
         verbose_name = 'Университет'
         verbose_name_plural = 'Университеты'
     def get_absolute_url(self):
-        return reverse('university', kwargs={'university_slug':self.slug})
+        return reverse('universities', kwargs={'university_slug':self.slug})
 
 
 

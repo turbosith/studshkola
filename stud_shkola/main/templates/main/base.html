@@ -15,10 +15,10 @@
 
 {% endblock %}
 </head>
-<body class="websiteBody" style="z-index: 100;">
-<header class="headerFrame">
-    <div  style="background:#F5F5F5">
-    <div class="container" style=background-color:#F5F5F5;>
+<body class="websiteBody" >
+<header class="headerFrame" >
+    <div  >
+    <div class="container" >
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
@@ -38,8 +38,8 @@
         <div class="text-end">
 
 
-<button type="button" href="" class="btn btn-outline-dark me-2" style="margin-top: 18%">Войти</button>
-          <button type="button" href="" class="btn btn-outline-dark me-2" style="margin-top: 18%">Регистрация</button>
+<button type="button" href="{%url 'login'%}" class="btn btn-outline-dark me-2" style="margin-top: 18%">Войти</button>
+          <button type="button" href="{%url 'register'%}"  class="btn btn-outline-dark me-2" style="margin-top: 18%">Регистрация</button>
 
         </div>
       </div>

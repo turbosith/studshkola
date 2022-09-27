@@ -1,5 +1,6 @@
 {% extends 'main/base.html'%}
 {%load static %}
+{% block title%}Вузы{% endblock %}
 {% block head %}
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -8,6 +9,7 @@
 {% endblock%}
 
 {% block content%}
+<div class="fon">
 <div id="button_back">
 <div id="button_back_img">
 <img src="/media/photos/2022/20/button_img-PhotoRoom.png/" id="img_bb">
@@ -21,14 +23,15 @@
 
     <p class=center-pic>
         <img id="crug" src="/media/photos/2022/20/cruug.png"  />
-    </p>
+
+        <div class="voprosy-fon" ></div>
   <div class="fil-tr">
        <ul class="nav navbar-nav ms-auto" >
                     <li class="nav-item dropdown">
-                        <a href="#"  data-bs-toggle="dropdown" class="po-populjarnosti" style= " text-decoration:none; color: #196C8C;">Категория</a>
+                        <a href="#"  data-bs-toggle="dropdown" class="po-populjarnosti" style= " text-decoration:none; color: #196C8C;">Выберите ВУЗ...</a>
                         <div class="dropdown-menu dropdown-menu-end">
-                                {% for c in cats%}
-                            <a  href="{{ c.get_absolute_url }}"class="dropdown-item" >{{c.name}}</a>
+                                {% for u in uni%}
+                            <a  href="{{ u.get_absolute_url }}"class="dropdown-item" >{{u.name}}</a>
                             {% endfor %}
 
                         </div>
@@ -44,10 +47,14 @@
 
   </div>
 
+    </p>
+
+
 
 
 <div id="yzor">
 <img src="/media/photos/2022/20/yzor.png"  id="img_yzor">
+</div>
 </div>
 
 {% endblock%}
