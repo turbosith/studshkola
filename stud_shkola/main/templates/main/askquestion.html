@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'main/css/askquestion.css' %}">
 {% endblock %}
 {%  block content%}
-
+{% if request.user.is_authenticated %}
 <div class="form-body" >
         <div class="row">
             <div class="form-holder">
@@ -33,4 +33,10 @@
 <div id="yzor">
 <img src="/media/photos/2022/20/yzor.png" id="img_yzor">
 </div>
+{%else%}
+<h3 style="margin-left:5%;margin-top:5%;">Для того, чтобы задать вопрос, нужно зайти в аккаунт :-)</h3>
+
+<img style="margin-left:13%;margin-top:-5%;" src="/media/photos/2022/20/sad.png" >
+{% endif%}
+
 {% endblock%}

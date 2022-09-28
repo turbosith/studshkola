@@ -6,7 +6,6 @@ class Questions(models.Model):
     cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
     question=models.TextField( blank=True, verbose_name="Вопрос")
     photo=models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фотография",blank=True)
-    userid = models.BigIntegerField(default=0)
     uni = models.ForeignKey('Universities', on_delete=models.PROTECT, null=True, verbose_name="Вузы")
     time_create=models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True)
@@ -49,6 +48,7 @@ class Universities(models.Model):
         verbose_name_plural = 'Университеты'
     def get_absolute_url(self):
         return reverse('universities', kwargs={'university_slug':self.slug})
-
+class Comments(models.Model):
+    cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
 
 

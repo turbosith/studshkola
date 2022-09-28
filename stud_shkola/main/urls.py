@@ -4,7 +4,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import  MainCategory
+from .views import MainCategory, RegisterUser, LoginUser, logout_user
 
 urlpatterns = [
     path('', views.menu, name='home'),
@@ -16,7 +16,8 @@ urlpatterns = [
 
     path('menuu', views.menuu, name='menuu'),
     path('register', RegisterUser.as_view(), name='register'),
-    path('login', views.login, name='login'),
+    path('login', LoginUser.as_view(), name='login'),
+    path('logout', logout_user, name='logout'),
     path('university', views.show_uni, name='university'),
     path('universities/<slug:university_slug>/', views.show_university, name='universities'),
     path('category', views.show_category, name='category'),

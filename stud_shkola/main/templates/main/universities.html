@@ -9,15 +9,17 @@
 {% block content%}
 
 
-<div class="kartochka-vuza">
-     <div id="button_back">
+
+     <div >
+<div id="button_back">
 <div id="button_back_img">
 <img src="/media/photos/2022/20/button_img-PhotoRoom.png/" id="img_bb">
 </div>
 <div id="button_back_text">
-<p><a  style= "color:#000000; text-decoration:none"  href=" {% url 'university' %}"> ВУЗЫ</a></p>
+<p><a href=" {% url 'home' %}" style= "color:#000000; text-decoration:none" style=""> Вузы</a></p>
 </div>
-</div>
+
+         </div>
   <div class="voprosy-fon"></div>
   {%if university.photo%}
 <p><img  src="{{university.photo.url}}"  alt="" class="foto-vuza"></p>

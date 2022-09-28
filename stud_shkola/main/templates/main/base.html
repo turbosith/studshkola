@@ -23,7 +23,7 @@
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         </a>
-<h1 class="hedliner" style="color: #196C8C; margin-top: 0%;">StudШкола</h1>
+<h1 class="hedliner" style="color: #196C8C; margin-top: -2%;">StudШкола</h1>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
 
@@ -31,39 +31,32 @@
 
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" >
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Поиск..." aria-label="Search" style="margin-top: 18%">
-        </form>
-
-        <div class="text-end">
 
 
-<button type="button" href="{%url 'login'%}" class="btn btn-outline-dark me-2" style="margin-top: 18%">Войти</button>
-          <button type="button" href="{%url 'register'%}"  class="btn btn-outline-dark me-2" style="margin-top: 18%">Регистрация</button>
 
-        </div>
+
+{% if request.user.is_authenticated %}
+            <a    class="hedliner" style="text-decoration:none; margin-top: 1%;margin-left:45%;font-size: 40px; position:absolute">Здравствуйте, {{user.username}}! </a>
+          <div class="text-end">
+            <a  href="{%url 'logout'%}" class="btn btn-outline-dark me-2" style= " text-decoration:none; margin-top: 25%">Выйти</a>
+
+            {%else%}
+          <div class="text-end">
+            <a  href="{%url 'register'%}" class="btn btn-outline-dark me-2" style= " text-decoration:none; margin-top: 15%">Регистрация</a>
+<a  href="{%url 'login'%}" class="btn btn-outline-dark me-2" style= " text-decoration:none; margin-top: 15%">Вход</a>
+
+{%endif%}
+              <a  href="{%url 'menuu'%}"type="button" class="btn btn-secondary btn-lg active" style="background-color:#196C8C; right:5%; position:absolute;margin-top: 1%">Меню<a/>
+               </div>
+
+
       </div>
 
     </div>
         </div>
 
 
-  </header>
 
-
-<input id="toggle" type="checkbox"></input>
-
-<label for="toggle" class="hamburger">
-
-  <div class="top-bun" style="z-index:6">
-
-  </div>
-  <div class="meat" style="z-index:6">
-
-  </div>
-  <div class="bottom-bun" style="z-index:6"></div>
-<button href="{%url 'menuu'%}" style="z-index:5;  position: absolute;top: 0px;right: -20px; opacity: 0;" >bebra</button>
-</label>
 
 
 <hr stylle="size:2">
