@@ -1,7 +1,11 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import TextInput, ModelForm
 from .models import *
+from phonenumber_field.formfields import PhoneNumberField
+
 class AddQuestionForm(forms.ModelForm):
     '''
     question = forms.CharField(widget=forms.Textarea(attrs={'cols':40, 'rows':2}),label="Вопрос*")
@@ -17,6 +21,7 @@ class AddQuestionForm(forms.ModelForm):
         widgets={
             'question':forms.Textarea(attrs={'cols':40, 'rows':2})
         }
+
     def clean_title(self):
         question=self.cleaned_data['question']
         if len(question)>255:
@@ -42,5 +47,16 @@ class Choise(forms.ModelForm):
         question=self.cleaned_data['uni']
 
         return question
-
+class RegisterUserForm(UserCreationForm):
+    username= forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    email=forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
+    #phone = forms.CharField(label='Номер телефона', widget=forms.PhoneNumberField(attrs={'class': 'form-input'}))
+    password1= forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    password2= forms.CharField(label='Повтор пароля',widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    class Meta:
+        model=User
+        fields=('username','email','password1','password2')
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
 

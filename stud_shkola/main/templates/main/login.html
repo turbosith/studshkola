@@ -10,16 +10,17 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Регистрация</h3>
+                        <h3>Вход</h3>
 
 <form method="post"  class="requires-validation">
     {%csrf_token%}
+    <div>{{form.non_field_errors}}</div>
     {% for f in form%}
     <p><label class="form-label" for="{{f.id_for_label}}">{{f.label}}:</label>{{f}}</p>
     <div class="form-error">{{f.errors}}</div>
     {%endfor%}
      <div class="form-button mt-3">
-    <button type="submit" class="btn btn-primary">Регистрация</button>
+    <button type="submit" class="btn btn-primary">Войти</button>
                           </div>
                     </div>
                 </div>
