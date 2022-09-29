@@ -7,14 +7,17 @@
 <link rel="stylesheet" href="{% static 'main/css/category.css' %}">
 {% endblock%}
 {% block content%}
- <div id="button_back">
+
+     <div >
+<div id="button_back">
 <div id="button_back_img">
 <img src="/media/photos/2022/20/button_img-PhotoRoom.png/" id="img_bb">
 </div>
 <div id="button_back_text">
-<p><a href=" {% url 'home' %}" style= "color:#000000; text-decoration:none"> Главная</a></p>
+<p><a href=" {% url 'university' %}" style= "color:#000000; text-decoration:none" style=""> Вузы</a></p>
 </div>
-</div>
+
+         </div>
 <div class="voprosy-fon" ></div>
   <div class="fil-tr">
        <ul class="nav navbar-nav ms-auto" >
@@ -72,9 +75,12 @@
 
 
 
-<button style="margin-left:50%;margin-top:-10%;  line-height: normal; position:relative;">Посмотреть</button>
+<button  class="btn btn-secondary" style="margin-left:20%;margin-top:-10%; line-height: normal; position:absolute; text-decoration:none; color:#ffffff"><a style="text-decoration:none; color:#F5F5F5" href="{{ q.get_absolute_url }}"  >Посмотреть</a></button>
   </div>
+
         </div>
+
+
 
    {% endfor %}
 

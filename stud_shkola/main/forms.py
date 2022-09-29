@@ -15,9 +15,10 @@ class AddQuestionForm(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['cat'].empty_label="Категория не выбрана"
+        self.fields['uni'].empty_label = "Из какого вы ВУЗа?/По какому ВУЗу у вас вопрос?"
     class Meta:
         model=Questions
-        fields=['question','cat','photo']
+        fields=['question','cat','uni','photo']
         widgets={
             'question':forms.Textarea(attrs={'cols':40, 'rows':2})
         }
@@ -50,6 +51,7 @@ class Choise(forms.ModelForm):
 class RegisterUserForm(UserCreationForm):
     username= forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
     email=forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
+    #uni=forms.ModelChoiceField(label='Наименование учебной организации',queryset=Universities.objects.all(), empty_label='Наименование учебной организации')
     #phone = forms.CharField(label='Номер телефона', widget=forms.PhoneNumberField(attrs={'class': 'form-input'}))
     password1= forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2= forms.CharField(label='Повтор пароля',widget=forms.PasswordInput(attrs={'class': 'form-input'}))

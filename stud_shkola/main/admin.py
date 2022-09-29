@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
+from .forms import AddQuestionForm
 from .models import *
 
 
@@ -16,6 +17,15 @@ class MainAdmin(admin.ModelAdmin):
     search_fields = ('question', 'cat')
     list_editable = ('is_published',)
     list_filter=('is_published','time_create')
+    '''
+class MainAd(admin.ModelAdmin):
+    list_display = ('id','question','cat', 'photo', 'time_create','is_published')
+    list_display_links = ('id','question')
+    search_fields = ('question', 'cat')
+    list_editable = ('is_published',)
+    list_filter=('is_published','time_create')
+    form = AddQuestionForm
+    '''
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id','name')
     list_display_links = ('id','name')

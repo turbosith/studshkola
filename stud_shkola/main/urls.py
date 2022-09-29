@@ -12,7 +12,7 @@ urlpatterns = [
     path('askquestion', views.askquestion, name='askquestion'),
     path('certain_question/<int:qid>/', views.certain_question, name='certain_question'),
 
-    path('questions', views.questions, name='questions'),
+
 
     path('menuu', views.menuu, name='menuu'),
     path('register', RegisterUser.as_view(), name='register'),

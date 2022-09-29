@@ -6,16 +6,16 @@ class Questions(models.Model):
     cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
     question=models.TextField( blank=True, verbose_name="Вопрос")
     photo=models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фотография",blank=True)
-    uni = models.ForeignKey('Universities', on_delete=models.PROTECT, null=True, verbose_name="Вузы")
+    uni = models.ForeignKey('Universities', on_delete=models.PROTECT, blank=True, verbose_name="Вузы")
     time_create=models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True)
     is_published=models.BooleanField(default=True, verbose_name="Опубликовано")
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+
 
     def __str__(self):
         return self.question
     def get_absolute_url(self):
-        return reverse('que', kwargs={'que_slug':self.slug})
+        return reverse('certain_question', kwargs={'qid':self.pk})
     class Meta:
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'

@@ -71,7 +71,7 @@ body {
 }
 .image-7 {
   width: 815.22px;
-  height: 95.01px;
+  height: 120.01px;
   border-radius: 18px;
   margin-down:15%;
   background:#F5F5F5;
@@ -79,6 +79,7 @@ body {
   border-radius: 11px;
   padding: 22px 7px 12px 480px;
    border: 1px solid var(--black);
+   position: relative;
 }
 .flex-wrapper-one {
 

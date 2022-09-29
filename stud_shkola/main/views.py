@@ -29,7 +29,16 @@ def mirea(request):
     return render(request,'main/university.html')
 
 def certain_question(request,qid):
-    return render(request,'main/askquestion.html', {'title': 'StudШкола'})
+    que = Questions.objects.get(pk=qid)
+    context = {
+        'que': que,
+        'title': que.question,
+        # 'cat_selected': university.name
+
+    }
+    return render(request, 'main/certan_question.html', context=context)
+
+
 def universities(request, uid):
     return HttpResponse(f"<h1>ВУЗ: </h1><p>{uid}</p>")
 def pageNotFound(request, exception):
@@ -37,14 +46,14 @@ def pageNotFound(request, exception):
 '''
 class MainQuestions(ListView):
     model=questions
-    template_name = "main/questions.html"
+    template_name = "main/certan_question.html"
     context_object_name = 'que'
     extra_context = {tit}
 '''
 
 def questions(request):
     que = Questions.objects.all()
-    return render(request, 'main/questions.html', {'title': 'StudШкола', 'que': que})
+    return render(request, 'main/certan_question.html', {'title': 'StudШкола', 'que': que})
 
 def menuu(request):
     return render(request, 'main/menuu.html', {'title': 'Меню'})
@@ -52,6 +61,7 @@ def menuu(request):
 
 def show_university(request, university_slug):
     university=get_object_or_404(Universities, slug=university_slug)
+    que = Questions.objects.filter(uni__name=university.name)
     context={
         'university':university,
         'title':university.name,
@@ -155,6 +165,7 @@ class RegisterUser(DataMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'main/register.html'
     success_url = reverse_lazy('login')
+    success_msg='Вы успешно зарегистрировались'
     def get_context_data(self,*,object_list=None, **kwargs):
         context=super().get_context_data(**kwargs)
         c_def=self.get_user_context(title="Регистрация")

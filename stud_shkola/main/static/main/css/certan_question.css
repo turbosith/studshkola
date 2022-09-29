@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+	margin: 0 auto;
+	background-color:#F5F5F5;
+}
+.foto {
+  width: 600px;
+  height: 645px;
+  margin-left: 3%;
+  margin-top: 0%;
+  position: fixed;
+}
