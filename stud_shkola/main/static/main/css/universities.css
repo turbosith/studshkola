@@ -172,12 +172,12 @@ body {
 
 
 .kakie-normativy-nuzhno-ssdat-na-voennuju {
-  width: 800px;
+  width: 790px;
   font-family: "Alegreya Sans";
   font-size: 30px;
   font-weight: 400;
   line-height: normal;
-  color: var(--dim-gray);
+  color: var(--black);
 margin-top:-5%;
 margin-left:-140%;
 
@@ -188,7 +188,7 @@ margin-left:-140%;
   font-size: 24px;
   font-weight: 400;
   line-height: normal;
-  color: var(--black);
+  color: var(--dim-gray);
  margin-top:-5%;
 margin-left:-140%;
 

@@ -65,6 +65,7 @@ def show_university(request, university_slug):
     context={
         'university':university,
         'title':university.name,
+        'que':que,
         #'cat_selected': university.name
 
     }
@@ -171,9 +172,10 @@ class RegisterUser(DataMixin, CreateView):
         c_def=self.get_user_context(title="Регистрация")
         return dict(list(context.items())+list(c_def.items()))
     def form_valid(self, form):
-        user=form.save()
-        login(self.request,user)
-        return redirect('home')
+        self.object=form.save(commit=False)
+        self.object.author=self.request.user
+        self.object.save()
+        return super().form_valid(form)
 class LoginUser(DataMixin, LoginView):
     form_class = LoginUserForm
     template_name = 'main/login.html'

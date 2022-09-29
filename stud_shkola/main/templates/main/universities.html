@@ -26,6 +26,19 @@
 
 {%endif%}
 
+
+
+
+
+  <h1 class="mgtu-im-baumana">{{university.name}}</h1>
+
+</div>
+
+  <div class="voprosy-fon"></div>
+
+<a class="bn59" href="askquestion" style=" color:#ffffff;">
+    Задать вопрос
+</a>
    <div class="voprosy">
      {% for q in que%}
     <div
@@ -37,9 +50,7 @@
 
 
 
-    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju" style=" white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;">
+    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
       {{q.question}}
     </p>
     <p class="andrej-zadal-vopross-v-kategriju-sport">
@@ -53,7 +64,7 @@
 
 
 
-<button  class="btn btn-secondary" style="margin-left:20%;margin-top:-10%; line-height: normal; position:absolute; text-decoration:none; color:#ffffff"><a style="text-decoration:none; color:#F5F5F5" href="{{ q.get_absolute_url }}"  >Посмотреть</a></button>
+<button  class="btn btn-secondary" style="margin-left:20%;margin-top:-7%; line-height: normal; position:absolute; text-decoration:none; color:#ffffff"><a style="text-decoration:none; color:#F5F5F5" href="{{ q.get_absolute_url }}"  >Посмотреть</a></button>
   </div>
 
         </div>
@@ -61,18 +72,6 @@
 
 
    {% endfor %}
-
-
-
-  <h1 class="mgtu-im-baumana">{{university.name}}</h1>
-
-</div>
-
-  <div class="voprosy-fon"></div>
-
-<a class="bn59" href="askquestion" style=" color:#ffffff;">
-    Задать вопрос
-</a>
 
 
 {% endblock%}

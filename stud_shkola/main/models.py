@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -6,7 +7,8 @@ class Questions(models.Model):
     cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
     question=models.TextField( blank=True, verbose_name="Вопрос")
     photo=models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фотография",blank=True)
-    uni = models.ForeignKey('Universities', on_delete=models.PROTECT, blank=True, verbose_name="Вузы")
+    uni = models.ForeignKey('Universities', on_delete=models.PROTECT, blank=True, verbose_name="Вузы", null=True)
+    author=models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор вопроса", blank=True, null=True)
     time_create=models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True)
     is_published=models.BooleanField(default=True, verbose_name="Опубликовано")

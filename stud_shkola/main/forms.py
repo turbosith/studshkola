@@ -29,6 +29,7 @@ class AddQuestionForm(forms.ModelForm):
             raise ValidationError('Длинна превышает 255 символов')
         return question
 
+
 class Choise(forms.ModelForm):
     '''
     question = forms.CharField(widget=forms.Textarea(attrs={'cols':40, 'rows':2}),label="Вопрос*")
