@@ -1,0 +1,96 @@
+{% extends 'main/base.html'%}
+{%load static %}
+{% block title%}Вопрос{% endblock %}
+{% block head %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="{% static 'main/css/certain_question.css' %}">
+{% endblock%}
+{% block content%}
+
+{% if messages%}
+        <div class="alert alert-success">
+                {% for m in messages%}
+                {{m}}
+                {%endfor%}
+
+
+        </div>
+{%endif%}
+
+        <h2 class="text-start">{{que.question}}</h2>
+        <p class="fs-5">Категория: {{que.cat}}</p>
+        <p class="fs-5">Автор вопроса: {{que.author}}</p>
+        <p class="fs-5">Дата создания: {{que.time_create|date:'d.m.Y-h:m'}}</p>
+     <p></p>
+
+        {%if que.photo%}
+        <p><img class="foto"  src="{{que.photo.url}}" ></p>
+        {%endif%}
+{% if request.user.is_authenticated %}
+<div style="">
+
+
+<p class="fs-5" >Добавить ответ</p>
+
+<div class="col-4" >
+
+        <form action="" class="requires-validation" id="add_form" method="post" >
+                {%csrf_token%}
+
+              {{form.as_p}}
+        </form>
+
+                <button form="add_form" type="submit" class="btn btn-outline-dark me-2" >Добавить</button>
+                    </div>
+
+</div>
+{%else%}
+<div class="col-sm-12">
+        <div class="alert fade alert-simple alert-warning alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+          <button type="button" class="close font__size-18" data-dismiss="alert">
+									<span aria-hidden="true">
+										<i class="fa fa-times warning"></i>
+									</span>
+									<span class="sr-only">Close</span>
+								</button>
+          <i class="start-icon fa fa-exclamation-triangle faa-flash animated"></i>
+          <strong class="font__weight-semibold">Warning!</strong> Better check yourself, you're not looking too good.
+        </div>
+      </div>
+{% endif%}
+<div class="comments">
+<h3 class="title-comments" style="margin-down:10%">Ответы ({{que.comments_questions.all.count}})</h3>
+<ul class="media-list">
+{%for item in que.comments_questions.all%}
+
+  <!-- Комментарий (уровень 1) -->
+  <li class="media">
+    <div class="media-body">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="author">{{item.author}}</div>
+          <div class="metadata">
+            <span class="date">{{item.time_create}}</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="media-text text-justify" style="font-size:25px">{{item.text}}</div>
+
+        </div>
+      </div>
+
+<HR>
+
+
+{%endfor%}
+
+</ul>
+</div>
+
+
+
+
+
+<div class="pull-right"><a class="btn btn-info" href="#" style="margin-left:50%">Вернуться в начало</a></div>
+{% endblock %}

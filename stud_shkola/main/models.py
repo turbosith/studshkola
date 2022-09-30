@@ -16,8 +16,8 @@ class Questions(models.Model):
 
     def __str__(self):
         return self.question
-    def get_absolute_url(self):
-        return reverse('certain_question', kwargs={'qid':self.pk})
+    #def get_absolute_url(self):
+        #return reverse('certain_question', kwargs={'pk':self.pk})
     class Meta:
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'
@@ -50,7 +50,18 @@ class Universities(models.Model):
         verbose_name_plural = 'Университеты'
     def get_absolute_url(self):
         return reverse('universities', kwargs={'university_slug':self.slug})
-class Comments(models.Model):
-    cat = models.ForeignKey('Category',on_delete=models.PROTECT, null=True, verbose_name="Категория")
 
+class Comments(models.Model):
+    quest = models.ForeignKey('Questions', on_delete=models.PROTECT, blank=True, verbose_name="Вопрос", null=True, related_name='comments_questions')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор ответа", blank=True, null=True)
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
+    text=models.TextField(verbose_name='Текст ответа')
+    status=models.BooleanField(verbose_name='Видимость ответа', default=True)
+class LevelEducation(models.Model):
+    name = models.CharField(max_length=100, db_index=True, verbose_name="Уровень образования",blank=True, null=True)
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = 'Уровень образования'
+        verbose_name_plural = 'Уровни образования'
 

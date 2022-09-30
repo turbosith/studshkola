@@ -9,7 +9,6 @@
 {% block content%}
 
 
-
      <div >
 <div id="button_back">
 <div id="button_back_img">
@@ -20,7 +19,12 @@
 </div>
 
          </div>
+
   <div class="voprosy-fon"></div>
+         <a  href="{% url 'askquestion'%}" style=" color:#ffffff;" class="bn59">
+    Задать вопрос
+</a>
+
   {%if university.photo%}
 <p><img  src="{{university.photo.url}}"  alt="" class="foto-vuza"></p>
 
@@ -34,12 +38,10 @@
 
 </div>
 
-  <div class="voprosy-fon"></div>
+  <div ></div>
 
-<a class="bn59" href="askquestion" style=" color:#ffffff;">
-    Задать вопрос
-</a>
-   <div class="voprosy">
+>
+  <div class="voprosy">
      {% for q in que%}
     <div
 
@@ -50,23 +52,24 @@
 
 
 
-    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
+    <p class="kakie-normativy-nuzhno-ssdat-na-voennuju" style=" white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">
       {{q.question}}
     </p>
     <p class="andrej-zadal-vopross-v-kategriju-sport">
-        Андрей задал вопрос в категрии &#34;{{q.cat}}&#34; <br />
+        {{q.author}} задал(-а) вопрос в категрии &#34;{{q.cat}}&#34; <br />
 
     </p>
-    <p class="andrej-zadal-vopross-v-kategriju-sport">
-       <u>{{q.time_create}}</u><br />
+    <p class="andrej-zadal-vopross-v-kategriju-sport"> Дата создания:
+       {{q.time_create|date:'d.m.Y-h:m'}}<br />
 
     </p>
 
 
 
-<button  class="btn btn-secondary" style="margin-left:20%;margin-top:-7%; line-height: normal; position:absolute; text-decoration:none; color:#ffffff"><a style="text-decoration:none; color:#F5F5F5" href="{{ q.get_absolute_url }}"  >Посмотреть</a></button>
+<button  class="btn btn-secondary" style="margin-left:20%;margin-top:-7%; line-height: normal; position:absolute; text-decoration:none; color:#ffffff"><a style="text-decoration:none; color:#F5F5F5" href="/certain_question/{{q.pk}}"  >Посмотреть</a></button>
   </div>
-
         </div>
 
 

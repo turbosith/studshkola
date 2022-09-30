@@ -1,17 +1,19 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.http import HttpResponseNotFound,Http404
 # Create your views here.
 from django.urls import reverse_lazy
+from django.views.generic.edit import FormMixin
 
 from .forms import *
 from .models import Questions, Category, Universities
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from .utils import *
-
+from django.contrib import messages
 def menu(request):
     '''
     que = questions.object.order_by('-id')
@@ -27,7 +29,7 @@ def menu(request):
     return render(request, 'main/index.html')
 def mirea(request):
     return render(request,'main/university.html')
-
+'''
 def certain_question(request,qid):
     que = Questions.objects.get(pk=qid)
     context = {
@@ -36,7 +38,47 @@ def certain_question(request,qid):
         # 'cat_selected': university.name
 
     }
-    return render(request, 'main/certan_question.html', context=context)
+    return render(request, 'main/certain_question.html', context=context)
+'''
+
+
+class CustomSuccessMessageMixin:
+    @property
+    def success_msg(self):
+        return False
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_msg)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return '%s?id=%s' % (self.success_url, self.object.id)
+class CertainQuestion(CustomSuccessMessageMixin,FormMixin, DetailView):
+    model=Questions
+    template_name = 'main/certain_question.html'
+    context_object_name = 'que'
+    form_class=CommentForm
+    success_msg = 'Ответ успешно создан'
+    #def get_queryset(self):
+        #return Questions.objects.get(pk=self.kwargs['qid'])
+    def get_success_url(self):
+        return reverse_lazy('certain_question', kwargs={'pk': self.get_object().id})
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.quest = self.get_object()
+        self.object.author = self.request.user
+        self.object.save()
+        return super().form_valid(form)
+
+
 
 
 def universities(request, uid):
@@ -46,14 +88,14 @@ def pageNotFound(request, exception):
 '''
 class MainQuestions(ListView):
     model=questions
-    template_name = "main/certan_question.html"
+    template_name = "main/certain_question.html"
     context_object_name = 'que'
     extra_context = {tit}
 '''
 
 def questions(request):
     que = Questions.objects.all()
-    return render(request, 'main/certan_question.html', {'title': 'StudШкола', 'que': que})
+    return render(request, 'main/certain_question.html', {'title': 'StudШкола', 'que': que})
 
 def menuu(request):
     return render(request, 'main/menuu.html', {'title': 'Меню'})
@@ -71,7 +113,7 @@ def show_university(request, university_slug):
     }
     return render(request, 'main/universities.html', context=context)
 
-
+'''
 def askquestion(request):
     if request.method== 'POST':
         form=AddQuestionForm(request.POST,request.FILES)
@@ -84,6 +126,20 @@ def askquestion(request):
         form=AddQuestionForm()
 
     return render(request,'main/askquestion.html', {'form':form, 'title': 'Задать вопрос'})
+    '''
+class AsKQuestion(LoginRequiredMixin, DataMixin,CreateView):
+    login_url=reverse_lazy('login')
+    model=Questions
+    template_name = 'main/askquestion.html'
+    form_class = AddQuestionForm
+    success_url = reverse_lazy('category')
+    def form_valid(self, form):
+        self.object=form.save(commit=False)
+        self.object.author=self.request.user
+        self.object.save()
+        return super().form_valid(form)
+
+
 #class RegisterUser(DataMixin, CreateView):
 def choice(request):
 
@@ -172,10 +228,9 @@ class RegisterUser(DataMixin, CreateView):
         c_def=self.get_user_context(title="Регистрация")
         return dict(list(context.items())+list(c_def.items()))
     def form_valid(self, form):
-        self.object=form.save(commit=False)
-        self.object.author=self.request.user
-        self.object.save()
-        return super().form_valid(form)
+        user = form.save()
+        login(self.request, user)
+        return redirect('home')
 class LoginUser(DataMixin, LoginView):
     form_class = LoginUserForm
     template_name = 'main/login.html'
@@ -188,3 +243,15 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+class Profile(LoginRequiredMixin, ListView):
+    login_url = 'login'
+    model=Questions
+    template_name = 'main/profile.html'
+    context_object_name = 'que'
+    form_class=CommentForm
+    def get_queryset(self):
+
+        return Questions.objects.all()
+
+
+

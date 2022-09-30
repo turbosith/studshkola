@@ -133,7 +133,7 @@ body {
 	height: 57px;
 	display: flex;
 	justify-content: space-around;
-	margin: 40 0 0 20;
+
 }
 #button_back_img {
 	width: 35px;
@@ -145,18 +145,16 @@ body {
 	padding-top: -5px;
 }
 #button_back_text p{
-	margin-top: 65px;
+	margin-top: 10px;
 	color: #09264F;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 35px;
-
 }
 #img_bb{
-	margin-top: 65px;
+	margin-top: 13px;
 	height: 95%;
 }
-
 .kartochka-vuza {
   padding: 1px 0 0;
 }
@@ -172,6 +170,7 @@ body {
   margin-top: 0%;
 
 }
+
 .po-populjarnosti {
   height: 26.08px;
   width: 273.86px;
@@ -224,7 +223,7 @@ margin-left:-140%;
 
 }
 #img_yzor{
-	margin-top: -4%;
+	top: 132%;
 	align-content:left;
 	width: 12%;
 	height: 30%;
@@ -232,7 +231,7 @@ margin-left:-140%;
 
   margin-left: 0%;
   margin-top: -31%;
-  position:fixed;
+position:fixed;
 
 }
 .bn59 {
@@ -277,7 +276,7 @@ text-decoration:none;
 	height: 57px;
 }
 #button_back_text {
-	width: 125px;
+	width: auto;
 	height: 47px;
 	padding-top: -5px;
 }
