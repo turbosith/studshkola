@@ -169,7 +169,7 @@ def choice(request):
 def show_uni(request):
     que = Questions.objects.order_by('-id')
     cats = Category.objects.all()
-    uni = Universities.objects.order_by('-name')
+    uni = Universities.objects.order_by('id')
     context = {'title': 'Вопросы',
                'que': que,
                 'uni': uni,
@@ -243,6 +243,7 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+'''
 class Profile(LoginRequiredMixin, ListView):
     login_url = 'login'
     model=Questions
@@ -252,6 +253,13 @@ class Profile(LoginRequiredMixin, ListView):
     def get_queryset(self):
 
         return Questions.objects.all()
+'''
+@login_required(login_url='login')
+def profile(request):
 
+    context = {
+        'que': Questions.objects.filter(author=request.user)
+    }
 
+    return render(request, 'main/profile.html', context)
 

@@ -57,6 +57,9 @@ class Comments(models.Model):
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     text=models.TextField(verbose_name='Текст ответа')
     status=models.BooleanField(verbose_name='Видимость ответа', default=True)
+    class Meta:
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
 class LevelEducation(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Уровень образования",blank=True, null=True)
     def __str__(self):

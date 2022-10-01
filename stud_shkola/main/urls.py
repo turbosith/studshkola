@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.urls import path
+from django.views.decorators.cache import cache_page
+
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import MainCategory, RegisterUser, LoginUser, logout_user, AsKQuestion, CertainQuestion, Profile
+from .views import MainCategory, RegisterUser, LoginUser, logout_user, AsKQuestion, CertainQuestion
 
 urlpatterns = [
     path('', views.menu, name='home'),
@@ -19,7 +21,7 @@ urlpatterns = [
     path('universities/<slug:university_slug>/', views.show_university, name='universities'),
     path('category', views.show_category, name='category'),
     path('categories/<slug:cat_slug>/', views.categories, name='categories'),
-    path('profile', Profile.as_view(), name='profile'),
+    path('profile', views.profile, name='profile'),
 
 
 

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import TextInput, ModelForm, Textarea
 from .models import *
+from captcha.fields import CaptchaField
 
 
 class AddQuestionForm(forms.ModelForm):
@@ -50,12 +51,14 @@ class Choise(forms.ModelForm):
 
         return question
 class RegisterUserForm(UserCreationForm):
-    username= forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    email=forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
-    phone= forms.CharField(label='Номер телефона', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    level=forms.ModelChoiceField(label='Уровень образования',queryset=LevelEducation.objects.all(), empty_label='Уровень образования')
-    password1= forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    password2= forms.CharField(label='Повтор пароля',widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    username= forms.CharField(label='Логин*', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    email=forms.EmailField(label='Email*', widget=forms.EmailInput(attrs={'class': 'form-input'}))
+    phone= forms.CharField(label='Номер телефона', widget=forms.TextInput(attrs={'class': 'form-input'}),required=False)
+    level=forms.ModelChoiceField(label='Уровень образования*',queryset=LevelEducation.objects.all(), empty_label='Уровень образования')
+    photo = forms.ImageField(required=False, label="Фотография со студенческим билетом (статус полной верификации)")
+    password1= forms.CharField(label='Пароль*', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    password2= forms.CharField(label='Повтор пароля*',widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+
     class Meta:
         model=User
         fields=('username','email','phone','password1','password2')

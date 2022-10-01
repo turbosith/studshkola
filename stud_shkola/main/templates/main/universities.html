@@ -75,6 +75,7 @@
 
 
    {% endfor %}
-
-
+{% if not que.exists%}
+      <p class="fs-5" style="margin-left:0%; margin-top:10%">В данный момент нет вопросов с этим ВУЗом. Будьте первым, кто его задаст! :)</p>
+{% endif%}
 {% endblock%}

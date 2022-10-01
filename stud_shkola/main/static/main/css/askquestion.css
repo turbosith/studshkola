@@ -12,7 +12,7 @@
 html, body {
     height: 100%;
     background-color: #98CADD;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 

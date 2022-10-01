@@ -48,8 +48,9 @@
         </div>
     </div>
 <h2 class="text-center">Ваши вопросы</h2>
- <div class="voprosy">
+  <div style="margin-left:30%">
      {% for q in que%}
+
     <div
 
       class="image-7">
@@ -78,5 +79,8 @@
 <button  class="btn btn-secondary" style="margin-left:20%;margin-top:-7%; line-height: normal; position:absolute; text-decoration:none; color:#ffffff"><a style="text-decoration:none; color:#F5F5F5" href="/certain_question/{{q.pk}}"  >Посмотреть</a></button>
   </div>
         </div>
-     {%endfor%}
+
+
+
+   {% endfor %}
 {% endblock %}

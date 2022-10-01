@@ -36,7 +36,11 @@ class LevelAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
-
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'text','author', 'time_create')
+    list_display_links = ('id', 'text')
+    search_fields = ('text',)
+admin.site.register(Comments,CommentAdmin)
 admin.site.register(LevelEducation, LevelAdmin)
 admin.site.register(Universities, UniversitiesAdmin)
 admin.site.register(Questions,MainAdmin )
