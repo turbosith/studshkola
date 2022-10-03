@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import TextInput, ModelForm, Textarea
 from .models import *
-from captcha.fields import CaptchaField
+
 
 
 class AddQuestionForm(forms.ModelForm):

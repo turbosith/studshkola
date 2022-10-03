@@ -39,6 +39,7 @@ p {
 	align-content:left;
 	width: 12%;
 	height: 30%;
+	position:fixed;
 }
 .center-pic{
 text-align:center;
